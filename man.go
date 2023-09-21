@@ -20,6 +20,21 @@ func findSmallestNumber(numbers []float64) float64 {
 
 	return smallest
 }
+func findLargestNumber(numbers []float64) float64 {
+	if len(numbers) == 0 {
+		return math.Inf(-1)
+	}
+
+	largest := numbers[0]
+
+	for _, num := range numbers {
+		if num > largest {
+			largest = num
+		}
+	}
+
+	return largest
+}
 
 
 
@@ -29,5 +44,10 @@ func main() {
 
 	smallest := findSmallestNumber(numbers)
 	fmt.Printf("The smallest number is: %f\n", smallest)
+	
+	largest := findLargestNumber(numbers)
+	fmt.Printf("The largest number is: %f\n", largest)
+
 
 }
+
