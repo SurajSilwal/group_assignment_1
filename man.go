@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 )
+
 func calculateSum(numbers []float64) float64 {
 	sum := 0.0
 
@@ -63,18 +64,33 @@ func calculateAverage(numbers []float64) float64 {
 	average := sum / float64(len(numbers))
 	return average
 }
+
+func countEvenNumbers(numbers []float64) int {
+	count := 0
+
+	for _, num := range numbers {
+		if math.Mod(num, 2) == 0 {
+			count++
+		}
+	}
+
+	return count
+}
+
 func main() {
-	
+
 	numbers := []float64{3.14, 2.718, 1.618, 42, 0.001}
 
 	smallest := findSmallestNumber(numbers)
 	fmt.Printf("The smallest number is: %f\n", smallest)
-	
+
 	sum := calculateSum(numbers)
 	fmt.Printf("The sum of the numbers is: %f\n", sum)
 
 	average := calculateAverage(numbers)
 	fmt.Printf("The average of the numbers is: %f\n", average)
 
-}
+	evenCount := countEvenNumbers(numbers)
+	fmt.Printf("Number of even numbers: %d\n", evenCount)
 
+}
