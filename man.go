@@ -77,6 +77,25 @@ func countEvenNumbers(numbers []float64) int {
 	return count
 }
 
+func findMedian(numbers []float64) float64 {
+	if len(numbers) == 0 {
+		return math.NaN()
+	}
+
+	sort.Float64s(numbers)
+	middle := len(numbers) / 2
+
+	if len(numbers)%2 == 0 {
+		// Average of two middle numbers if the slice has an even length
+		return (numbers[middle-1] + numbers[middle]) / 2.0
+	} else {
+		// Middle number if the slice has an odd length
+		return numbers[middle]
+	}
+}
+
+
+
 func main() {
 
 	numbers := []float64{3.14, 2.718, 1.618, 42, 0.001}
@@ -92,5 +111,8 @@ func main() {
 
 	evenCount := countEvenNumbers(numbers)
 	fmt.Printf("Number of even numbers: %d\n", evenCount)
+	
+	median := findMedian(numbers)
+	fmt.Printf("The median of the numbers is: %f\n", median)
 
 }
