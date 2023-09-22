@@ -36,6 +36,15 @@ func findLargestNumber(numbers []float64) float64 {
 	return largest
 }
 
+func calculateSum(numbers []float64) float64 {
+	sum := 0.0
+
+	for _, num := range numbers {
+		sum += num
+	}
+
+	return sum
+}
 
 
 func main() {
@@ -47,6 +56,10 @@ func main() {
 	
 	largest := findLargestNumber(numbers)
 	fmt.Printf("The largest number is: %f\n", largest)
+	
+	
+	sum := calculateSum(numbers)
+	fmt.Printf("The sum of the numbers is: %f\n", sum)
 
 
 }
