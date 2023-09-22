@@ -4,7 +4,15 @@ import (
 	"fmt"
 	"math"
 )
+func calculateSum(numbers []float64) float64 {
+	sum := 0.0
 
+	for _, num := range numbers {
+		sum += num
+	}
+
+	return sum
+}
 func findSmallestNumber(numbers []float64) float64 {
 	if len(numbers) == 0 {
 		return math.Inf(1)
@@ -46,7 +54,15 @@ func calculateSum(numbers []float64) float64 {
 	return sum
 }
 
+func calculateAverage(numbers []float64) float64 {
+	if len(numbers) == 0 {
+		return 0
+	}
 
+	sum := calculateSum(numbers)
+	average := sum / float64(len(numbers))
+	return average
+}
 func main() {
 	
 	numbers := []float64{3.14, 2.718, 1.618, 42, 0.001}
@@ -54,13 +70,11 @@ func main() {
 	smallest := findSmallestNumber(numbers)
 	fmt.Printf("The smallest number is: %f\n", smallest)
 	
-	largest := findLargestNumber(numbers)
-	fmt.Printf("The largest number is: %f\n", largest)
-	
-	
 	sum := calculateSum(numbers)
 	fmt.Printf("The sum of the numbers is: %f\n", sum)
 
+	average := calculateAverage(numbers)
+	fmt.Printf("The average of the numbers is: %f\n", average)
 
 }
 
